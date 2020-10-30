@@ -7,15 +7,10 @@ public class Fleet {
         counter++;
     }
 
-    public void airConditionerOn(Fuel fuel) {
+    public void airConditionerOn() {
         for (int i = 0; i < vehicles.length; i++) {
-            if (vehicles[i].getClass().equals(Car.class) && vehicles[i] != null) {
-                ((Car) vehicles[i]).setAirConditioning(true);
-                fuel.fuelUsageCar((Car)vehicles[i]);
-            } else if (vehicles[i].getClass().equals(Truck.class) && vehicles[i] != null) {
-                ((Truck) vehicles[i]).setAirConditioning(true);
-                fuel.fuelUsageTruck((Truck)vehicles[i]);
-            } else System.out.println("Zły typ pojazdu");
+            vehicles[i].setAirConditioning(true);
+            vehicles[i].setAverageFuelConsumtion(vehicles[i].getActualBurn());
         }
     }
 
@@ -24,4 +19,6 @@ public class Fleet {
             System.out.println(vehicles[i]);
         }
     }
+
 }
+

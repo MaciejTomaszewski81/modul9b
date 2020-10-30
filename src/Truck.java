@@ -6,12 +6,13 @@ public class Truck extends Car {
         this.weight = weight;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
+    @Override
+    public double getActualBurn() {
+        if (airConditioning) {
+            return getAverageFuelConsumtion() + 1.6 + (weight / 100) * 0.5;
+        } else {
+            return super.getActualBurn() + (weight / 100) * 0.5;
+        }
     }
 
     @Override

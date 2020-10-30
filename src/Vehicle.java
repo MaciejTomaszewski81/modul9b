@@ -2,7 +2,6 @@ public class Vehicle {
     private String name;
     private double capacity;
     private double averageFuelConsumtion;
-    private double calculateFuelConsumtion;
 
     public Vehicle(String name, double capacity, double averageFuelConsumtion) {
         this.name = name;
@@ -10,38 +9,28 @@ public class Vehicle {
         this.averageFuelConsumtion = averageFuelConsumtion;
     }
 
-    public String getName() {
-        return name;
+    public double getRange() {
+        return (capacity * 100) / getActualBurn();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(double capacity) {
-        this.capacity = capacity;
+    public double getActualBurn() {
+        return averageFuelConsumtion;
     }
 
     public double getAverageFuelConsumtion() {
         return averageFuelConsumtion;
     }
 
-    public double getCalculateFuelConsumtion() {
-        return calculateFuelConsumtion;
+    public void setAverageFuelConsumtion(double averageFuelConsumtion) {
+        this.averageFuelConsumtion = averageFuelConsumtion;
     }
 
-
-    public void setCalculateFuelConsumtion(double calculateFuelConsumtion) {
-        this.calculateFuelConsumtion = calculateFuelConsumtion;
+    public void setAirConditioning(boolean airConditioning) {
     }
 
     @Override
     public String toString() {
         return "Nazwa pojazdu " + name + " Pojemność baku: " + capacity +
-                " średnie spalanie: " + calculateFuelConsumtion;
+                " średnie spalanie: " + getAverageFuelConsumtion();
     }
 }
